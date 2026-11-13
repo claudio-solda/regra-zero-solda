@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f4d26">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>Regra Zero – Qualidade Solda</title>
 <style>
 :root{--bg:#f3f7f4;--card:#fff;--tx:#14231a;--mut:#5b6b60;--g:#1f7a3d;--g2:#0f4d26;--gl:#e3f3e8;--bd:#d3e0d7;--red:#c62828;--amb:#e0a100;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -109,6 +113,7 @@ function draw(keep){const y=scrollY;$("#m").innerHTML={regras,check,desv,gest}[t
 const a=$("#maq");if(a){a.onchange=()=>{S.maq=a.value;save();draw()};$("#dt").onchange=e=>{S.date=e.target.value||S.date;save();draw()}}if(keep)scrollTo(0,y)}
 $("#nav").onclick=e=>{if(e.target.dataset.t){tab=e.target.dataset.t;draw();scrollTo(0,0)}};
 draw();
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
 </body>
 </html>
